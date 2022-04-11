@@ -2,15 +2,30 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import CardCart from './CardCart'
 
-function Drawer(props) {
+
+
+function Drawer({ onClose, items, onRemove }) {
 	return (
 		<div className={'overlay'}>
 			<div className={'drawer'}>
 				<h2 className={'d-flex justify-between mb-30'}>Корзина
-					<img className={'remove-btn cu-p'} src={'./img/iconRemove.svg'} alt={'remove'} />
+					<img
+						onClick={onClose}
+						className={'remove-btn cu-p'}
+						src={'./img/iconRemove.svg'}
+						alt={'remove'} />
 				</h2>
 				<div className={'items mb-40'}>
-					<CardCart />
+					{
+						items &&
+						items.map(item => (
+							<CardCart
+								key={item.id}
+								{...item}
+								onRemove={() => onRemove(item.id)}
+							/>
+						))
+					}
 				</div>
 				<div className={'cartTotalBlock'}>
 					<ul>
