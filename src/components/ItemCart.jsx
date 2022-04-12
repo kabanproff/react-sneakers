@@ -1,7 +1,7 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 
-function CardCart({ price, title, imageUrl, onRemove }) {
+
+function ItemCart({ price, title, imageUrl, onRemove }) {
 	return (
 		<div className={'cartItem mb-20 d-flex align-center'}>
 			<img className={'imageItem mr-20'} width={70} height={70} src={imageUrl} alt={' in cart'} />
@@ -14,6 +14,6 @@ function CardCart({ price, title, imageUrl, onRemove }) {
 	)
 }
 
-CardCart.propTypes = {}
 
-export default CardCart
+
+export default ItemCart

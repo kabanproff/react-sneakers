@@ -120,6 +120,10 @@ body {
 		top: -5px;
 	}
 
+	div{
+		flex: 1;
+	}
+
 	p{
 		font-size: 16px;
 	}
@@ -171,8 +175,36 @@ header{
 			width: 200px;
 		}
 		.clear{
-			
+
 		}
 	}
 }
+
+.cartEmpty {
+	text-align: center;
+ 
+	p {
+	  width: 280px;
+	  line-height: 24px;
+	}
+ 
+	.greenButton {
+	  width: 245px;
+	  margin-top: 20px;
+ 
+	  &:hover {
+		 img {
+			transform: rotate(180deg) translateX(3px);
+		 }
+	  }
+ 
+	  img {
+		 position: relative;
+		 top: 1px;
+		 transform: rotate(180deg);
+		 margin-right: 15px;
+		 transition: transform 0.15s ease-in-out;
+	  }
+	}
+ }
 
