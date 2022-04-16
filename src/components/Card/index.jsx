@@ -1,35 +1,34 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import ContentLoader from 'react-content-loader'
 
+import AppContext from '../../context'
 import s from './Card.module.scss'
 
 function Card({
 	id,
+	parentId,
 	price,
 	title,
 	imageUrl,
-	onFavorites,
-	onPlus,
-	favorited = false,
-	loading = false
+	favorited,
+	loading
 }) {
 
-	const [isAdded, setIsAdded] = React.useState(false)
-	const [isFavorite, setIsFavorite] = React.useState(favorited)
+	console.log(loading)
+	const { onAddToFavorite: onFavorites, isItemAdded, onAddToCart: onPlus } = useContext(AppContext)
 
-	const obj = { id, parentId: id, title, imageUrl, price };
+	const obj = { id, parentId, title, imageUrl, price };
 
+	// console.log(favorited)
 	const onClickPlus = () => {
-		setIsAdded(!isAdded)
 		onPlus(obj)
 	}
 
 	const onClickFavorite = () => {
-		setIsFavorite(!isFavorite)
 		onFavorites(obj)
 	}
 
-
+	// console.log(`in cart id${id} favorited,isfav, isItemAdded`, favorited, isFavorite, isItemAdded)
 	// console.log(price, title, imageUrl)
 	return (
 		<div className={s.card} >
@@ -54,7 +53,8 @@ function Card({
 							onClick={onClickFavorite}
 							className={s.favorite}
 						>
-							<img src={`./img/${isFavorite ? 'icon-heartL' : 'icon-heartU'}.svg`} alt={'heart like'} />
+
+							<img src={`./img/${favorited ? 'icon-heartL' : 'icon-heartU'}.svg`} alt={'heart like'} />
 						</div>
 						<img width={133} height={112} src={`./${imageUrl}`} alt={'sneakers'} />
 						<h5>{title}</h5>
@@ -66,7 +66,7 @@ function Card({
 							<img
 								className={s.plus}
 								onClick={onClickPlus}
-								src={`./img/${isAdded ? 'iconBtnCheck' : 'iconBtnPlus'}.svg`}
+								src={`./img/${isItemAdded(parentId) ? 'iconBtnCheck' : 'iconBtnPlus'}.svg`}
 								alt={'bi'}
 							/>
 						</div>

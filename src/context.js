@@ -1,5 +1,5 @@
-// import React from 'react'
+import React from 'react'
 
-// const AppContext = React.useContext({})
+const AppContext = React.createContext({})
 
-// export default AppContext
+export default AppContext
