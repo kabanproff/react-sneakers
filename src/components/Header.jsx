@@ -1,9 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+
 import { useCart } from '../hooks/useCart'
 
 function Header({ onClickCart }) {
-
 	const { totalPrice } = useCart()
 
 	return (

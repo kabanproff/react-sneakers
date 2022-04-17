@@ -1,6 +1,6 @@
 import React from 'react'
-import Card from '../components/Card'
 
+import Card from '../components/Card'
 
 
 function Home({
@@ -11,21 +11,21 @@ function Home({
 	onChangeSearchInput,
 	onAddToFavorite,
 	isLoading,
+	onAddToCart
 }) {
-	console.log('items', items)
-	console.log('favorites', favorites)
+
 	const renderItems = () => {
 		const filterItems = items.filter(i => i.title.toLowerCase().includes(searchValue.toLowerCase()))
 
 		return (
 			(isLoading ? [...Array(8)] : filterItems).map((i, id) => {
-				// !isLoading && console.log(`--${i.id}`, favorites.some(fav => +fav.parentId === +i.id))
 				return <Card
 					key={id}
 					onFavorites={onAddToFavorite}
 					loading={isLoading}
-					{...i}
 					favorited={favorites.some(fav => +fav.parentId === +i.id)}
+					onPlus={onAddToCart}
+					{...i}
 				/>
 			})
 		)

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import ContentLoader from 'react-content-loader'
 
 import AppContext from '../../context'
@@ -11,15 +11,14 @@ function Card({
 	title,
 	imageUrl,
 	favorited,
-	loading
+	onFavorites,
+	loading,
+	onPlus
 }) {
 
-	console.log(loading)
-	const { onAddToFavorite: onFavorites, isItemAdded, onAddToCart: onPlus } = useContext(AppContext)
-
+	const { isItemAdded } = React.useContext(AppContext)
 	const obj = { id, parentId, title, imageUrl, price };
 
-	// console.log(favorited)
 	const onClickPlus = () => {
 		onPlus(obj)
 	}
@@ -28,8 +27,6 @@ function Card({
 		onFavorites(obj)
 	}
 
-	// console.log(`in cart id${id} favorited,isfav, isItemAdded`, favorited, isFavorite, isItemAdded)
-	// console.log(price, title, imageUrl)
 	return (
 		<div className={s.card} >
 			{
@@ -49,13 +46,15 @@ function Card({
 					</ContentLoader>
 				) : (
 					<>
-						<div
-							onClick={onClickFavorite}
-							className={s.favorite}
-						>
+						{
+							onFavorites &&
+							<div
+								onClick={onClickFavorite}
+								className={s.favorite}
+							>
 
-							<img src={`./img/${favorited ? 'icon-heartL' : 'icon-heartU'}.svg`} alt={'heart like'} />
-						</div>
+								<img src={`./img/${favorited ? 'icon-heartL' : 'icon-heartU'}.svg`} alt={'heart like'} />
+							</div>}
 						<img width={133} height={112} src={`./${imageUrl}`} alt={'sneakers'} />
 						<h5>{title}</h5>
 						<div className={'d-flex justify-between align-center'}>
@@ -63,12 +62,13 @@ function Card({
 								<span>Цена:</span>
 								<b>{price} руб.</b>
 							</div>
-							<img
-								className={s.plus}
-								onClick={onClickPlus}
-								src={`./img/${isItemAdded(parentId) ? 'iconBtnCheck' : 'iconBtnPlus'}.svg`}
-								alt={'bi'}
-							/>
+							{onPlus &&
+								<img
+									className={s.plus}
+									onClick={onClickPlus}
+									src={`./img/${isItemAdded(parentId) ? 'iconBtnCheck' : 'iconBtnPlus'}.svg`}
+									alt={'bi'}
+								/>}
 						</div>
 					</>
 				)

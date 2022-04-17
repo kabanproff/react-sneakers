@@ -1,12 +1,8 @@
-import React, { useContext } from 'react'
+import React from 'react'
+
 import Card from '../components/Card'
-import AppContext from '../context'
 
-
-
-function Favorites() {
-
-	const { favorites, onAddToFavorite } = useContext(AppContext)
+function Favorites({ isLoading, favorites, onAddToFavorite, onAddToCart }) {
 
 	return (
 		<div className={'content p-40'}>
@@ -15,14 +11,17 @@ function Favorites() {
 			</div>
 			<div className={'sneakers d-flex flex-wrap'}>
 				{
-					favorites.map((i, id) => (
-						<Card
-							key={id}
-							favorited={true}
-							onFavorites={onAddToFavorite}
-							{...i}
-						/>
-					))
+					(isLoading ? [...Array(8)] : favorites)
+						.map((i, id) => (
+							<Card
+								key={id}
+								favorited={true}
+								onFavorites={onAddToFavorite}
+								onPlus={onAddToCart}
+								loading={isLoading}
+								{...i}
+							/>
+						))
 				}
 			</div>
 		</div>
