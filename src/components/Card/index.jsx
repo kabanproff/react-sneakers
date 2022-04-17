@@ -53,7 +53,7 @@ function Card({
 								className={s.favorite}
 							>
 
-								<img src={`./img/${favorited ? 'icon-heartL' : 'icon-heartU'}.svg`} alt={'heart like'} />
+								<img src={`img/${favorited ? 'icon-heartL' : 'icon-heartU'}.svg`} alt={'heart like'} />
 							</div>}
 						<img width={133} height={112} src={`./${imageUrl}`} alt={'sneakers'} />
 						<h5>{title}</h5>
@@ -66,7 +66,7 @@ function Card({
 								<img
 									className={s.plus}
 									onClick={onClickPlus}
-									src={`./img/${isItemAdded(parentId) ? 'iconBtnCheck' : 'iconBtnPlus'}.svg`}
+									src={`img/${isItemAdded(parentId) ? 'iconBtnCheck' : 'iconBtnPlus'}.svg`}
 									alt={'bi'}
 								/>}
 						</div>

@@ -9,7 +9,7 @@ function ItemCart({ price, title, imageUrl, onRemove }) {
 				<p className={'mb-5'}>{title}</p>
 				<b>{price} руб.</b>
 			</div>
-			<img onClick={onRemove} className={'remove-btn'} src={'./img/iconRemove.svg'} alt={'remove'} />
+			<img onClick={onRemove} className={'remove-btn'} src={'img/iconRemove.svg'} alt={'remove'} />
 		</div>
 	)
 }
