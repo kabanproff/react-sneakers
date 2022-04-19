@@ -98,8 +98,8 @@ function Drawer({ onClose, items, onRemove, opened }) {
 							}
 							image={
 								isOrderComplete
-									? process.env.PUBLIC_URL + '/img/iconOrderComplete.svg'
-									: process.env.PUBLIC_URL + '/img/emptyCart.svg'
+									? '/img/iconOrderComplete.svg'
+									: '/img/emptyCart.svg'
 							}
 						/>
 				}
