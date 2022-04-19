@@ -103,7 +103,7 @@ function App() {
 	const isItemAdded = (id) => {
 		return cartItems.some(i => +i.parentId === +id)
 	}
-	console.log(process.env.PUBLIC_URL)
+
 	return (
 		<AppContext.Provider value={
 			{

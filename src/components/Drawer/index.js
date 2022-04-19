@@ -97,9 +97,10 @@ function Drawer({ onClose, items, onRemove, opened }) {
 									: 'Добавьте хотя бы одну пару кроссовок, чтобы сделать заказ.'
 							}
 							image={
-								isOrderComplete
-									? process.env.PUBLIC_URL + '/img/iconOrderComplete.svg'
-									: process.env.PUBLIC_URL + '/img/emptyCart.svg'
+								process.env.PUBLIC_URL +
+									isOrderComplete
+									? '/img/iconOrderComplete.svg'
+									: '/img/emptyCart.svg'
 							}
 						/>
 				}
