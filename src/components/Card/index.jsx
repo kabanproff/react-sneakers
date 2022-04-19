@@ -53,9 +53,9 @@ function Card({
 								className={s.favorite}
 							>
 
-								<img src={`img/${favorited ? 'icon-heartL' : 'icon-heartU'}.svg`} alt={'heart like'} />
+								<img src={process.env.PUBLIC_URL + `/img/${favorited ? 'icon-heartL' : 'icon-heartU'}.svg`} alt={'heart like'} />
 							</div>}
-						<img width={133} height={112} src={`${imageUrl}`} alt={'sneakers'} />
+						<img width={133} height={112} src={process.env.PUBLIC_URL + `/${imageUrl}`} alt={'sneakers'} />
 						<h5>{title}</h5>
 						<div className={'d-flex justify-between align-center'}>
 							<div className={'d-flex flex-column'}>
@@ -66,7 +66,7 @@ function Card({
 								<img
 									className={s.plus}
 									onClick={onClickPlus}
-									src={`img/${isItemAdded(parentId) ? 'iconBtnCheck' : 'iconBtnPlus'}.svg`}
+									src={process.env.PUBLIC_URL + `/img/${isItemAdded(parentId) ? 'iconBtnCheck' : 'iconBtnPlus'}.svg`}
 									alt={'bi'}
 								/>}
 						</div>

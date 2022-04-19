@@ -47,7 +47,7 @@ function Drawer({ onClose, items, onRemove, opened }) {
 					<img
 						onClick={onClose}
 						className={'remove-btn cu-p'}
-						src={'img/iconRemove.svg'}
+						src={process.env.PUBLIC_URL + '/img/iconRemove.svg'}
 						alt={'remove'} />
 				</h2>
 				{
@@ -80,7 +80,7 @@ function Drawer({ onClose, items, onRemove, opened }) {
 									disabled={isLoading}
 									onClick={onClickOrder}
 									className={'greenButton'}><span>Оформить заказ</span>
-									<img src={'img/iconArrow.svg'} alt={'arrow'} />
+									<img src={process.env.PUBLIC_URL + '/img/iconArrow.svg'} alt={'arrow'} />
 								</button>
 							</div>
 						</>
@@ -98,8 +98,8 @@ function Drawer({ onClose, items, onRemove, opened }) {
 							}
 							image={
 								isOrderComplete
-									? 'img/iconOrderComplete.svg'
-									: 'img/emptyCart.svg'
+									? process.env.PUBLIC_URL + '/img/iconOrderComplete.svg'
+									: process.env.PUBLIC_URL + '/img/emptyCart.svg'
 							}
 						/>
 				}

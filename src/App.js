@@ -103,7 +103,7 @@ function App() {
 	const isItemAdded = (id) => {
 		return cartItems.some(i => +i.parentId === +id)
 	}
-
+	console.log(process.env.PUBLIC_URL)
 	return (
 		<AppContext.Provider value={
 			{
@@ -125,7 +125,7 @@ function App() {
 
 				<Header onClickCart={() => setCartOpened(true)} />
 				<Routes>
-					<Route index element={
+					<Route path={process.env.PUBLIC_URL} element={
 						<Home
 							items={items}
 							favorites={favorites}
